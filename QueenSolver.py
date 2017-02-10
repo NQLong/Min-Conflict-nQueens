@@ -94,9 +94,9 @@ class minConflict(object):
         for r in xrange(len(self.rows)):
             for c in xrange(len(self.rows)):
                 if self.rows[c] == r:
-                    rowprint += "Q"
+                    rowprint += "Q "
                 else:
-                    rowprint += "X"
+                    rowprint += "X "
             rowprint += "\n"
         print (rowprint)
 
