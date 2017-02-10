@@ -5,9 +5,10 @@ import random
 class minConflict(object):
     # Constructor for the minConflict class. Contains an 8 int array to represent the board
     # And a suitable swap candidates array
-    def __init__(self):
-        self.rows = [0,0,0,0,0,0,0,0]
+    def __init__(self, number_of_rows):
+        self.rows = []
         self.candidates = []
+        self.number_of_rows = number_of_rows
 
     # Function to check the number of conflicts given a row and column of a certain piece.
     # Returns the number of conflicts
@@ -27,13 +28,15 @@ class minConflict(object):
     # Function to initialize the board with 8 queens in an ideal layout
     def initialize_board(self):
         #iterates through the columns to place the queen
-        for col in xrange(len(self.rows)):
+        for col in xrange(self.number_of_rows):
             #This is used to determine the bast placement. maxed out at 8
             min_conflict = 8
             #Flush the candidates array
             self.candidates = []
             #finds the rows with the least number of conflicts and adds them to the candidates array
+            self.rows.append(0)
             for row in xrange(len(self.rows)):
+
                 num_of_conflicts = self.check_conflicts(self.rows[row], col)
                 if num_of_conflicts == min_conflict:
                     self.candidates.append(row)
@@ -103,7 +106,8 @@ def main():
     # Create a new instance of the minConflict class
     random.seed(10)
 
-    eightQueen = minConflict()
+    number_of_rows = input("How many rows are on the board?")
+    eightQueen = minConflict(number_of_rows)
 
 
 
