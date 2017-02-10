@@ -1,6 +1,7 @@
 # Created by Caleb Elliott
 
 import random
+import time
 
 class minConflict(object):
     # Constructor for the minConflict class. Contains an 8 int array to represent the board
@@ -104,7 +105,7 @@ class minConflict(object):
 
 def main():
     # Create a new instance of the minConflict class
-    random.seed(10)
+    random.seed(time.time())
 
     number_of_rows = input("How many rows are on the board?")
     eightQueen = minConflict(number_of_rows)
